@@ -67,6 +67,9 @@
             that.$element[0].offsetWidth // force reflow
           }
 
+          // event to allow specific fixes for browsers that behave strangely when manipulating the modal at the point when 'shown' is triggered.
+          that.$element.trigger($.Event('willAnimateIn'));
+          
           that.$element
             .addClass('in')
             .attr('aria-hidden', false)
